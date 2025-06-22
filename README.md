@@ -6,4 +6,5 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=vvvilkha_java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=vvvilkha_java-project-61)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=vvvilkha_java-project-61&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=vvvilkha_java-project-61)
 
- https://asciinema.org/a/JGMNLl6M2JBLfyVXNHnOF2s6f
+https://asciinema.org/a/JGMNLl6M2JBLfyVXNHnOF2s6f - game1
+https://asciinema.org/a/FXdI8zzh2xeM2tPwtnAr82Sf0 - game2
