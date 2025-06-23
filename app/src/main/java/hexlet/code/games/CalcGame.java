@@ -8,7 +8,7 @@ public class CalcGame implements Game {
     private String correctAnswer;
 
     @Override
-    public String getQuestion(){
+    public String getQuestion() {
         int num1 = random.nextInt(100);
         int num2 = random.nextInt(100);
         String operator = getRandomOperator();
@@ -20,7 +20,7 @@ public class CalcGame implements Game {
     public String getCorrectAnswer() {
         return correctAnswer;
     }
-    public String getRandomOperator(){
+    public String getRandomOperator() {
         String[] operators = {"+", "-", "*"};
         return operators[random.nextInt(operators.length)];
     }

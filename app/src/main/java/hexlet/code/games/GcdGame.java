@@ -8,21 +8,21 @@ public class GcdGame implements Game {
     private int correctAnswer;
 
 
-    public String getQuestion(){
+    public String getQuestion() {
         int num1 = random.nextInt(150);
         int num2 = random.nextInt(150);
-        correctAnswer = calculateGcd(num1,num2);
+        correctAnswer = calculateGcd(num1, num2);
         return num1 + " " + num2;
     }
     public String getCorrectAnswer() {
         return String.valueOf(correctAnswer);
     }
-        public void start(){
-            System.out.println("Find the greatest common divisor of given numbers.");
-        }
+    public void start() {
+        System.out.println("Find the greatest common divisor of given numbers.");
+    }
 
-    private int calculateGcd(int a, int b){
-        while (b != 0){
+    private int calculateGcd(int a, int b) {
+        while (b != 0) {
             int temp = b;
             b = a % b;
             a = temp;

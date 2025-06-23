@@ -11,14 +11,14 @@ public class EvenGame {
     private static boolean isEven(int number) {
         return number % 2 == 0;
     }
-    public static void play(){
+    public static void play() {
         String name = Cli.greetUser();
         Random random = new Random();
         int correctAnswers = 0;
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         while (correctAnswers < ROUNDS_TO_WIN) {
-           int number = random.nextInt(100);
+            int number = random.nextInt(100);
             System.out.println("Question: " + number);
             System.out.println("Your answer: ");
             Scanner scanner = new Scanner(System.in);
