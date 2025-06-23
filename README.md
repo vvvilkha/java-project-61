@@ -7,7 +7,8 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=vvvilkha_java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=vvvilkha_java-project-61)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=vvvilkha_java-project-61&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=vvvilkha_java-project-61)
 
-https://asciinema.org/a/JGMNLl6M2JBLfyVXNHnOF2s6f - EvenGame
+https://asciinema.org/a/ogNPC38AlnvIqpsHJ4EEVnCxj - EvenGame
 https://asciinema.org/a/FXdI8zzh2xeM2tPwtnAr82Sf0 - CalcGame
 https://asciinema.org/a/GOGTAgYnzAZWOwAV4nOv2JfPR - GcdGame
 https://asciinema.org/a/T5N1yvHZbEedGnoETaILnc34P - ProgressionGame
+https://asciinema.org/a/8lsgMyUIIK9jnNFvOAams3Y0d - PrimeGame
