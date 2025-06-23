@@ -24,6 +24,9 @@ public class CalcGame implements Game {
         String[] operators = {"+", "-", "*"};
         return operators[random.nextInt(operators.length)];
     }
+    public void start() {
+        System.out.println("What is the result of the expression?");
+    }
     private String calculate(int num1, int num2, String operator) {
         switch (operator) {
             case "+":

@@ -10,3 +10,4 @@
 https://asciinema.org/a/JGMNLl6M2JBLfyVXNHnOF2s6f - EvenGame
 https://asciinema.org/a/FXdI8zzh2xeM2tPwtnAr82Sf0 - CalcGame
 https://asciinema.org/a/GOGTAgYnzAZWOwAV4nOv2JfPR - GcdGame
+https://asciinema.org/a/T5N1yvHZbEedGnoETaILnc34P - ProgressionGame

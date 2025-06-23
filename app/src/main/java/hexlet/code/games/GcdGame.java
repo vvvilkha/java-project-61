@@ -16,7 +16,11 @@ public class GcdGame implements Game {
     }
     public String getCorrectAnswer() {
         return String.valueOf(correctAnswer);
-}
+    }
+        public void start(){
+            System.out.println("Find the greatest common divisor of given numbers.");
+        }
+
     private int calculateGcd(int a, int b){
         while (b != 0){
             int temp = b;

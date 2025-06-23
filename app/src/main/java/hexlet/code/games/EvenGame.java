@@ -13,10 +13,9 @@ public class EvenGame {
     }
     public static void play(){
         String name = Cli.greetUser();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
         Random random = new Random();
         int correctAnswers = 0;
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         while (correctAnswers < ROUNDS_TO_WIN) {
            int number = random.nextInt(100);
