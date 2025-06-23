@@ -21,7 +21,8 @@ public class Engine {
             String answer = scanner.nextLine();
 
             if (!answer.equals(game.getCorrectAnswer())) {
-                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.%n", answer, game.getCorrectAnswer());
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.%n",
+                        answer, game.getCorrectAnswer());
                 System.out.println("Let's try again, " + name + "!");
                 return;
 
