@@ -6,8 +6,6 @@ import java.util.Random;
 public final class CalcGame implements Game {
     private final Random random = new Random();
     private static final int MAX_NUMBER = 100;
-    private int num1;
-    private int num2;
     private String correctAnswer;
 
     public void start() {

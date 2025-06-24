@@ -12,7 +12,7 @@ public final class ProgressionGame implements Game {
     private int correctAnswer;
 
     public String getQuestion() {
-        int length = random.nextInt(MAX_LENGTH)+MIN_LENGTH;
+        int length = random.nextInt(MAX_LENGTH) + MIN_LENGTH;
         int start = random.nextInt(MAX_START_VALUE);
         int maxStep = (MAX_RANDOM_VALUE - start) / (length - 1);
         if (maxStep <= 0) {

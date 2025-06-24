@@ -5,8 +5,6 @@ import hexlet.code.games.CalcGame;
 import hexlet.code.games.GcdGame;
 import hexlet.code.games.ProgressionGame;
 import hexlet.code.games.PrimeGame;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class App {
@@ -33,25 +31,25 @@ public class App {
         System.out.println(" ");
 
         switch (choice) {
-            case 1:
+            case GREET:
                 Cli.greetUser();
                 break;
-            case 2:
+            case EVEN_GAME:
                 EvenGame.play();
                 break;
-            case 3:
+            case CALC_GAME:
                 Engine.startGame(new CalcGame());
                 break;
-            case 4:
+            case GCD_GAME:
                 Engine.startGame(new GcdGame());
                 break;
-            case 5:
+            case PROGRESSION_GAME:
                 Engine.startGame(new ProgressionGame());
                 break;
-            case 6:
+            case PRIME_GAME:
                 Engine.startGame(new PrimeGame());
                 break;
-            case 0:
+            case EXIT:
                 System.out.println("Goodbye!");
                 break;
             default:
