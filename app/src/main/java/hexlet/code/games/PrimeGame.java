@@ -3,8 +3,9 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import java.util.Random;
 
-public class PrimeGame implements Game {
+public final class PrimeGame implements Game {
     private final Random random = new Random();
+    private static final int MAX_NUMBER = 100;
     private int correctAnswer;
 
     public void start() {
@@ -12,7 +13,7 @@ public class PrimeGame implements Game {
     }
 
     public String getQuestion() {
-        correctAnswer = random.nextInt(100) + 1;
+        correctAnswer = random.nextInt(MAX_NUMBER);
         return String.valueOf(correctAnswer);
     }
     public String getCorrectAnswer() {
@@ -22,7 +23,7 @@ public class PrimeGame implements Game {
         if (n <= 1) {
             return false;
         }
-        for (int i = 2; i < Math.sqrt(n); i++) {
+        for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 return false;
             }

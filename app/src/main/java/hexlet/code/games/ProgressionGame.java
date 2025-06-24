@@ -3,14 +3,18 @@ package hexlet.code.games;
 import hexlet.code.Game;
 import java.util.Random;
 
-public class ProgressionGame implements Game {
+public final class ProgressionGame implements Game {
     private final Random random = new Random();
+    private static final int MIN_LENGTH = 5;
+    private static final int MAX_LENGTH = 6;
+    private static final int MAX_START_VALUE = 100;
+    private static final int MAX_RANDOM_VALUE = 100;
     private int correctAnswer;
 
     public String getQuestion() {
-        int length = random.nextInt(6) + 5;
-        int start = random.nextInt(100);
-        int maxStep = (100 - start) / (length - 1);
+        int length = random.nextInt(MAX_LENGTH)+MIN_LENGTH;
+        int start = random.nextInt(MAX_START_VALUE);
+        int maxStep = (MAX_RANDOM_VALUE - start) / (length - 1);
         if (maxStep <= 0) {
             maxStep = 1;
         }

@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class EvenGame {
     private static final int ROUNDS_TO_WIN = 3;
+    private static final int MAX_RANDOM_NUMBER = 100;
 
     private static boolean isEven(int number) {
         return number % 2 == 0;
@@ -18,7 +19,7 @@ public class EvenGame {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         while (correctAnswers < ROUNDS_TO_WIN) {
-            int number = random.nextInt(100);
+            int number = random.nextInt(MAX_RANDOM_NUMBER);
             System.out.println("Question: " + number);
             System.out.println("Your answer: ");
             Scanner scanner = new Scanner(System.in);
