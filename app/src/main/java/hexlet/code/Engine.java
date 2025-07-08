@@ -3,32 +3,36 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int ROUNDS = 3;
+    private static final int ROUNDS_COUNT = 3;
 
-    public static void startGame(Game game) {
-
+    public static void greet() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("May I have your name? ");
-        String name = scanner.nextLine();
-        System.out.println("Hello, " + name + " !");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
+    }
 
-        game.start();
+    public static void run(String gameDescription, String[] questions, String[] correctAnswers) {
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < ROUNDS; i++) {
-            String question = game.getQuestion();
-            System.out.println("Question: " + question);
-            System.out.println("Your answer: ");
-            String answer = scanner.nextLine();
+        System.out.print("May I have your name? ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(gameDescription);
 
-            if (!answer.equals(game.getCorrectAnswer())) {
-                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.%n",
-                        answer, game.getCorrectAnswer());
-                System.out.println("Let's try again, " + name + "!");
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            System.out.println("Question: " + questions[i]);
+            System.out.print("Your choice: ");
+            String userAnswer = scanner.nextLine();
+
+            if (userAnswer.equals(correctAnswers[i])) {
+                System.out.println("Correct!");
+            } else {
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, correctAnswers[i]);
+                System.out.println("Let's try again, " + userName + "!");
                 return;
-
             }
-            System.out.println("Correct!");
         }
-        System.out.println("Congratulations, " + name + "!");
+        System.out.println("Congratulations, " + userName + "!");
     }
 }

@@ -1,46 +1,26 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
+import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class EvenGame {
-    private static final int ROUNDS_TO_WIN = 3;
-    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final int ROUNDS_COUNT = 3;
+    private static final int MAX_NUMBER = 100;
 
-    private static boolean isEven(int number) {
-        return number % 2 == 0;
-    }
-    public static void play() {
-        String name = Cli.greetUser();
+    public static void start() {
+
+        String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[] questions = new String[ROUNDS_COUNT];
+        String[] correctAnswers = new String[ROUNDS_COUNT];
+
         Random random = new Random();
-        int correctAnswers = 0;
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        while (correctAnswers < ROUNDS_TO_WIN) {
-            int number = random.nextInt(MAX_RANDOM_NUMBER);
-            System.out.println("Question: " + number);
-            System.out.println("Your answer: ");
-            Scanner scanner = new Scanner(System.in);
-            String answer = scanner.nextLine().trim().toLowerCase();
-
-            if (!answer.equals("yes") && !answer.equals("no")) {
-                System.out.printf("'%s' is an invalid answer. Let's try again, %s!%n", answer, name);
-                return;
-            }
-
-            String correctAnswer = isEven(number) ?  "yes" : "no";
-
-            if (!answer.equals(correctAnswer)) {
-                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.%n", answer, correctAnswer);
-                System.out.printf("Let's try again, %s!%n", name);
-                return;
-
-            }
-            System.out.println("Correct!");
-            correctAnswers++;
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            int number = random.nextInt(MAX_NUMBER);
+            questions[i] = Integer.toString(number);
+            correctAnswers[i] = (number % 2 == 0) ? "yes" : "no";
         }
-        System.out.printf("Congratulations, %s!%n", name);
+        Engine.run(gameDescription, questions, correctAnswers);
     }
 }

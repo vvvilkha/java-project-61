@@ -1,62 +1,55 @@
 package hexlet.code;
 
-import hexlet.code.games.EvenGame;
 import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
 import hexlet.code.games.GcdGame;
-import hexlet.code.games.ProgressionGame;
 import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
+
 import java.util.Scanner;
 
 public class App {
-    private static final int GREET = 1;
-    private static final int EVEN_GAME = 2;
-    private static final int CALC_GAME = 3;
-    private static final int GCD_GAME = 4;
-    private static final int PROGRESSION_GAME = 5;
-    private static final int PRIME_GAME = 6;
-    private static final int EXIT = 0;
-
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("""
+                Please enter the game number and press Enter.
+                1 - Greet
+                2 - Even
+                3 - Calc
+                4 - GCD
+                5 - Progression
+                6 - Prime
+                0 - Exit
+                """);
+        System.out.println("Your choice: ");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Your choice: ");
-        int choice = scanner.nextInt();
-        System.out.println(" ");
+        String choice = scanner.next();
 
         switch (choice) {
-            case GREET:
-                Cli.greetUser();
+            case "1":
+                Engine.greet();
                 break;
-            case EVEN_GAME:
-                EvenGame.play();
+            case "2":
+                EvenGame.start();
                 break;
-            case CALC_GAME:
-                Engine.startGame(new CalcGame());
+            case "3":
+                CalcGame.start();
                 break;
-            case GCD_GAME:
-                Engine.startGame(new GcdGame());
+            case "4":
+                GcdGame.start();
                 break;
-            case PROGRESSION_GAME:
-                Engine.startGame(new ProgressionGame());
+            case "5":
+                ProgressionGame.start();
                 break;
-            case PRIME_GAME:
-                Engine.startGame(new PrimeGame());
+            case "6":
+                PrimeGame.start();
                 break;
-            case EXIT:
+            case "0":
                 System.out.println("Goodbye!");
                 break;
             default:
-                System.out.println("Invalid choice. Please try again.");
+                System.out.println("Invalid choice. Try again.");
                 break;
-
-
         }
     }
 }

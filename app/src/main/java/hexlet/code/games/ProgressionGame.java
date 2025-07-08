@@ -1,47 +1,47 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
+import hexlet.code.Engine;
+
 import java.util.Random;
 
-public final class ProgressionGame implements Game {
-    private final Random random = new Random();
+public class ProgressionGame {
+    private static final int MAX_START = 50;
+    private static final int MAX_STEP = 10;
     private static final int MIN_LENGTH = 5;
-    private static final int MAX_LENGTH = 6;
-    private static final int MAX_START_VALUE = 100;
-    private static final int MAX_RANDOM_VALUE = 100;
-    private int correctAnswer;
+    private static final int MAX_LENGTH = 10;
+    private static final int ROUNDS_COUNT = 3;
 
-    public String getQuestion() {
-        int length = random.nextInt(MAX_LENGTH) + MIN_LENGTH;
-        int start = random.nextInt(MAX_START_VALUE);
-        int maxStep = (MAX_RANDOM_VALUE - start) / (length - 1);
-        if (maxStep <= 0) {
-            maxStep = 1;
-        }
-        int step = random.nextInt(maxStep) + 1;
-        int hiddenIndex = random.nextInt(length);
+    public static void start() {
+        String gameDescription = "What number is missing in the progression?";
+        String[] questions = new String[ROUNDS_COUNT];
+        String[] correctAnswers = new String[ROUNDS_COUNT];
 
-        return createProgression(start, step, length, hiddenIndex);
-    }
+        Random random = new Random();
 
-    public String getCorrectAnswer() {
-        return String.valueOf(correctAnswer);
-    }
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            int start = random.nextInt(MAX_START);
+            int step = random.nextInt(MAX_STEP - 1) + 1; // шаг не может быть нулевым
+            int length = random.nextInt(MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
 
-    public void start() {
-        System.out.println("What number is missing in the progression?");
-    }
-    private String createProgression(int start, int step, int length, int hiddenIndex) {
-        StringBuilder progression = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == hiddenIndex) {
-                progression.append(".. ");
-                correctAnswer = start + i * step;
-            } else {
-                progression.append(start + i * step).append(" ");
+            int hiddenIndex = random.nextInt(length);
+
+            StringBuilder progression = new StringBuilder();
+            int current = start;
+
+            for (int j = 0; j < length; j++) {
+                if (j == hiddenIndex) {
+                    progression.append(".. ");
+                    correctAnswers[i] = Integer.toString(current);
+                } else {
+                    progression.append(current).append(" ");
+                }
+                current += step;
             }
+
+            questions[i] = progression.toString().trim();
         }
-        return progression.toString().trim();
+
+        Engine.run(gameDescription, questions, correctAnswers);
     }
 }
 
