@@ -7,34 +7,35 @@ import java.util.Random;
 public final class CalcGame {
     private static final int ROUNDS_COUNT = 3;
     private static final int MAX_NUMBER = 100;
+    private static final char[] OPERATIONS = {'+', '-', '*'};
 
     public static void start() {
         String gameDescription = "What is the result of the expression?";
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[][] roundsData = new String[ROUNDS_COUNT][2];
 
         Random random = new Random();
-        String[] operators = {"+", "-", "*"};
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int num1 = random.nextInt(MAX_NUMBER);
             int num2 = random.nextInt(MAX_NUMBER);
-            String operator = operators[random.nextInt(operators.length)];
+            char operation = OPERATIONS[random.nextInt(OPERATIONS.length)];
 
-            questions[i] = num1 + " " + operator + " " + num2;
-            correctAnswers[i] = calculateAnswer(num1, num2, operator);
+            String question = num1 + " " + operation + " " + num2;
+            String answer = calculate(num1, num2, operation);
 
+            roundsData[i][0] = question;
+            roundsData[i][1] = answer;
         }
 
-        Engine.run(gameDescription, questions, correctAnswers);
+        Engine.run(gameDescription, roundsData);
     }
 
-    private static String calculateAnswer(int num1, int num2, String operator) {
-        return switch (operator) {
-            case "+" -> Integer.toString(num1 + num2);
-            case "-" -> Integer.toString(num1 - num2);
-            case "*" -> Integer.toString(num1 * num2);
-            default -> throw new IllegalStateException("Unexpected operator: " + operator);
+    private static String calculate(int num1, int num2, char operations) {
+        return switch (operations) {
+            case '+' -> Integer.toString(num1 + num2);
+            case '-' -> Integer.toString(num1 - num2);
+            case '*' -> Integer.toString(num1 * num2);
+            default -> throw new IllegalStateException("Unexpected operator: " + operations);
         };
     }
 }

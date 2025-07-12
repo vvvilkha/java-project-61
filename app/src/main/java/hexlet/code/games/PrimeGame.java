@@ -9,18 +9,22 @@ public final class PrimeGame {
 
     public static void start() {
         String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[][] roundsData = new String[ROUNDS_COUNT][2];
 
         Random random = new Random();
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int number = random.nextInt(MAX_NUMBER - 2) + 2;
-            questions[i] = Integer.toString(number);
-            correctAnswers[i] = isPrime(number) ? "yes" : "no";
+            String question = String.valueOf(number);
+            String answer = isPrime(number) ? "yes" : "no";
+
+            roundsData[i][0] = question;
+            roundsData[i][1] = answer;
         }
-        Engine.run(gameDescription, questions, correctAnswers);
+
+        Engine.run(gameDescription, roundsData);
     }
+
     private static boolean isPrime(int n) {
         if (n < 2) {
             return false;
